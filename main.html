@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vasco Vieira - Software Developer | AI & Cybersecurity Engineer</title>
+  <meta name="description" content="Personal website of a Software Developer and AI Engineer focused on machine learning, backend systems, and applied AI." />
+  <style>
+    :root {
+      --bg: #0b1020;
+      --bg-soft: #11182b;
+      --card: rgba(255,255,255,0.06);
+      --card-border: rgba(255,255,255,0.10);
+      --text: #e9eefc;
+      --muted: #a7b0cc;
+      --accent: #7c9cff;
+      --accent-2: #8ef0d1;
+      --shadow: 0 20px 60px rgba(0,0,0,0.35);
+      --radius: 22px;
+      --max: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(124,156,255,0.16), transparent 28%),
+        radial-gradient(circle at top right, rgba(142,240,209,0.10), transparent 22%),
+        linear-gradient(180deg, #070b14 0%, var(--bg) 100%);
+      min-height: 100vh;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    .container {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      backdrop-filter: blur(18px);
+      background: rgba(7,11,20,0.58);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 16px 0;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+    }
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow: var(--shadow);
+    }
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    .nav-links a:hover { color: var(--text); }
+
+    .hero {
+      padding: 72px 0 34px;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.35fr 0.85fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .panel {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .hero-main {
+      padding: 34px;
+      overflow: hidden;
+      position: relative;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--accent-2);
+      background: rgba(142,240,209,0.10);
+      border: 1px solid rgba(142,240,209,0.18);
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 0.88rem;
+      margin-bottom: 18px;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(2.4rem, 6vw, 4.8rem);
+      line-height: 0.98;
+      letter-spacing: -0.04em;
+    }
+    .gradient-text {
+      background: linear-gradient(135deg, #ffffff 10%, #9db5ff 45%, #8ef0d1 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .subtitle {
+      margin: 18px 0 0;
+      max-width: 62ch;
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+    .cta-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 26px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 12px 18px;
+      border-radius: 14px;
+      border: 1px solid transparent;
+      font-weight: 600;
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), #5f7dff);
+      color: white;
+    }
+    .btn-secondary {
+      background: rgba(255,255,255,0.04);
+      border-color: rgba(255,255,255,0.12);
+      color: var(--text);
+    }
+
+    .hero-side {
+      display: grid;
+      gap: 18px;
+    }
+    .stat-card {
+      padding: 22px;
+      display: grid;
+      gap: 10px;
+    }
+    .stat-label {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .stat-value {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+    }
+    .stat-note {
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: 0.96rem;
+    }
+    .mini-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 8px;
+    }
+    .tag {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: var(--text);
+      font-size: 0.88rem;
+    }
+
+    section { padding: 18px 0; }
+    .section-title {
+      font-size: 1.35rem;
+      margin: 0 0 16px;
+      letter-spacing: -0.02em;
+    }
+    .section-subtitle {
+      margin: -8px 0 18px;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+
+    .card {
+      padding: 22px;
+      border-radius: var(--radius);
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      box-shadow: var(--shadow);
+    }
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 1.08rem;
+      letter-spacing: -0.01em;
+    }
+    .meta {
+      color: var(--muted);
+      font-size: 0.94rem;
+      margin-bottom: 12px;
+    }
+    .card p, .card li {
+      color: var(--muted);
+      line-height: 1.7;
+    }
+    .card ul { margin: 0; padding-left: 18px; }
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+    .chip {
+      padding: 8px 11px;
+      border-radius: 999px;
+      background: rgba(124,156,255,0.10);
+      border: 1px solid rgba(124,156,255,0.18);
+      color: #dce5ff;
+      font-size: 0.88rem;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 16px;
+    }
+    .timeline-item {
+      padding: 22px;
+      border-radius: var(--radius);
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      box-shadow: var(--shadow);
+    }
+    .timeline-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: baseline;
+      margin-bottom: 8px;
+    }
+    .role { font-size: 1.08rem; font-weight: 700; }
+    .period { color: var(--muted); font-size: 0.93rem; }
+    .org { color: #c9d4ff; margin-bottom: 10px; }
+
+    .footer {
+      padding: 34px 0 46px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.95rem;
+    }
+
+    .contact-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+    .contact-link {
+      padding: 10px 14px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: var(--text);
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid, .grid-2, .grid-3 { grid-template-columns: 1fr; }
+      .hero { padding-top: 46px; }
+      .hero-main { padding: 26px; }
+      .nav-inner { align-items: flex-start; flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <div class="brand">
+        <div class="brand-mark"></div>
+        <div>Your Name</div>
+      </div>
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="panel hero-main">
+          <div class="eyebrow">AI Engineer · Software Developer · ML Systems</div>
+          <h1><span class="gradient-text">Building intelligent software</span><br/></h1>
+          <p class="subtitle">
+            I’m a software developer and AI engineer focused on machine learning, backend systems, and applied AI.
+            My work includes LLM automation, industrial software, health data analysis, and optimization tools for real-world systems.
+          </p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#contact">Contact Me</a>
+            <a class="btn btn-secondary" href="https://github.com/your-github" target="_blank" rel="noreferrer">GitHub</a>
+            <a class="btn btn-secondary" href="https://www.linkedin.com/in/your-linkedin" target="_blank" rel="noreferrer">LinkedIn</a>
+          </div>
+        </div>
+
+        <div class="hero-side">
+          <div class="panel stat-card">
+            <div class="stat-label">Focus</div>
+            <div class="stat-value">AI / Backend / ML</div>
+            <div class="stat-note">Strong foundation in Python, JavaScript, Node.js, SQL, TensorFlow, AWS, Docker, and Linux.</div>
+            <div class="mini-tags">
+              <span class="tag">Python</span>
+              <span class="tag">TensorFlow</span>
+              <span class="tag">Node.js</span>
+              <span class="tag">AWS</span>
+            </div>
+          </div>
+          <div class="panel stat-card">
+            <div class="stat-label">Current Role</div>
+            <div class="stat-value">Software Developer @ CeNTI</div>
+            <div class="stat-note">Working on data exchange platforms, industrial software, and ML applications.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <h2 class="section-title">About</h2>
+        <p class="section-subtitle">
+          Master’s degree in Information Systems from the University of Minho, with experience spanning backend development,
+          machine learning, LLM automation, full-stack work, and project coordination. I enjoy building practical systems that combine
+          strong engineering with data-driven decision-making.
+        </p>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="container">
+        <h2 class="section-title">Experience</h2>
+        <div class="timeline">
+          <article class="timeline-item">
+            <div class="timeline-top">
+              <div class="role">Software Developer</div>
+              <div class="period">Sep 2024 – Present</div>
+            </div>
+            <div class="org">CeNTI</div>
+            <p>Developing software for data exchange platforms, industrial applications, and machine learning solutions. Working across backend and ML-oriented development using Python, JavaScript, Node.js, TensorFlow, Flutter, C, C#, Linux, and AWS.</p>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-top">
+              <div class="role">Intern</div>
+              <div class="period">2023 – 2024</div>
+            </div>
+            <div class="org">PluggableAI</div>
+            <p>Contributed to a platform for optimizing and automating LLM responses. Worked on backend development, machine learning workflows, and prompt engineering using Python, JavaScript, SQL, and R.</p>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-top">
+              <div class="role">AI Engineer</div>
+              <div class="period">2024</div>
+            </div>
+            <div class="org">Whistle</div>
+            <p>Analyzed health-related data using machine learning techniques for classification and label creation, supporting insight discovery for diagnostics and treatment-related work.</p>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-top">
+              <div class="role">Backend Developer</div>
+              <div class="period">2024</div>
+            </div>
+            <div class="org">Amarna</div>
+            <p>Built a platform for managing electricity production and consumption, contributed to operational data analysis, and helped develop an ML-based optimization model.</p>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-top">
+              <div class="role">Freelance Developer</div>
+              <div class="period">2022 – 2023</div>
+            </div>
+            <div class="org">RAR Technology</div>
+            <p>Delivered frontend development and machine learning support for client projects using Java, React Native, and Laravel.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <h2 class="section-title">Selected Projects</h2>
+        <div class="grid-3">
+          <article class="card">
+            <h3>LLM Automation Platform</h3>
+            <div class="meta">Python · JavaScript · SQL · Prompt Engineering</div>
+            <p>Built to automate and optimize LLM responses for more reliable digital workflows.</p>
+          </article>
+          <article class="card">
+            <h3>Energy Optimization Platform</h3>
+            <div class="meta">Python · Java · JavaScript · ML</div>
+            <p>Software for monitoring electricity production and consumption, with an optimization model for operational decisions.</p>
+          </article>
+          <article class="card">
+            <h3>Health Data Classification</h3>
+            <div class="meta">Python · JavaScript · Machine Learning</div>
+            <p>Machine learning work for health-related classification and label generation to support diagnostic insight.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <h2 class="section-title">Skills</h2>
+        <div class="grid-2">
+          <div class="card">
+            <h3>Technical Skills</h3>
+            <div class="chips">
+              <span class="chip">Python</span><span class="chip">JavaScript</span><span class="chip">Node.js</span>
+              <span class="chip">TensorFlow</span><span class="chip">Machine Learning</span><span class="chip">LLMs</span>
+              <span class="chip">SQL</span><span class="chip">MongoDB</span><span class="chip">MariaDB</span>
+              <span class="chip">AWS</span><span class="chip">Docker</span><span class="chip">Kubernetes</span>
+              <span class="chip">Linux</span><span class="chip">C</span><span class="chip">C#</span><span class="chip">Java</span>
+              <span class="chip">Flutter</span><span class="chip">React Native</span><span class="chip">Laravel</span>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Languages</h3>
+            <ul>
+              <li>English — C1</li>
+              <li>German — B1</li>
+              <li>Spanish — Fluent</li>
+            </ul>
+            <h3 style="margin-top:18px;">Education Highlights</h3>
+            <ul>
+              <li>Master’s in Information Systems — University of Minho</li>
+              <li>300-hour Cybersecurity Course — IPCB</li>
+              <li>Integrated Master’s in Architecture — University of Minho</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="card">
+          <h2 class="section-title" style="margin-top:0;">Contact</h2>
+          <p class="section-subtitle" style="margin-bottom:0;">Open to software engineering, AI engineering, machine learning, and backend opportunities.</p>
+          <div class="contact-row">
+            <a class="contact-link" href="mailto:your@email.com">your@email.com</a>
+            <a class="contact-link" href="https://github.com/your-github" target="_blank" rel="noreferrer">GitHub</a>
+            <a class="contact-link" href="https://www.linkedin.com/in/your-linkedin" target="_blank" rel="noreferrer">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">© <span id="year"></span> Your Name · Built for GitHub Pages</div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
